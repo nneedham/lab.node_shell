@@ -1,6 +1,8 @@
 const pwd = require('./pwd');
 const ls = require('./ls');
 const cat = require('./cat');
+const prompt = require('./prompt');
+
 
 process.stdout.write('prompt > ');
 
@@ -29,6 +31,7 @@ process.stdin.on('data', (data) => {
         process.stdout.write('You typed: ' + cmd);
         process.stdout.write('\nprompt > ')
     } 
+    prompt();
 });
 
 
