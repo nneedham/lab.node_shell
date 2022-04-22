@@ -1,4 +1,5 @@
 const pwd = require('./pwd');
+const ls = require('./ls');
 
 process.stdout.write('prompt > ');
 
@@ -7,6 +8,8 @@ process.stdin.on('data', (data) => {
     if(cmd === 'pwd'){
         pwd();
         process.stdout.write('\nprompt > ')
+    } else if (cmd === 'ls'){
+        ls();
     } else {
         process.stdout.write('You typed: ' + cmd);
         process.stdout.write('\nprompt > ')
@@ -15,7 +18,7 @@ process.stdin.on('data', (data) => {
 
 
 //
-// NOTES BELOW! 
+// NOTES BELOW!
 //
 
 /* original bash.js with pwd code... up to lab section 2
