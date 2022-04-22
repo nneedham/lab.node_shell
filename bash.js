@@ -1,20 +1,35 @@
 const pwd = require('./pwd');
 const ls = require('./ls');
+const cat = require('./cat');
 
 process.stdout.write('prompt > ');
 
 process.stdin.on('data', (data) => {
-    const cmd = data.toString().trim();
-    if(cmd === 'pwd'){
-        pwd();
-        process.stdout.write('\nprompt > ')
-    } else if (cmd === 'ls'){
-        ls();
-    } else {
-        process.stdout.write('You typed: ' + cmd);
-        process.stdout.write('\nprompt > ')
+    const dataArr = [];
+    for (let key in data) {
+        dataArr.push(data[key]);
     }
+    const cmd = data.toString().trim();
+    process.stdout.write(cmd[0]);
+    process.stdout.write('\nprompt > ')
 });
+
+// process.stdin.on('data', (data) => {
+//     const cmd = data.toString().trim();
+//     if(cmd === 'pwd'){
+//         pwd();
+//         process.stdout.write('\nprompt > ')
+//     } else if (cmd === 'ls'){
+//         ls();
+//     } else if (cmd === 'cat'){
+//         cat();
+//     }
+
+//     else {
+//         process.stdout.write('You typed: ' + cmd);
+//         process.stdout.write('\nprompt > ')
+//     }
+// });
 
 
 //
